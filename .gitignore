@@ -1,0 +1,26 @@
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+terraform.tfvars
+!terraform.tfvars.example
+override.tf
+override.tf.json
+
+# Clés SSH - ne JAMAIS commit une clé privée
+*.pem
+*.ppk
+
+# Kubernetes
+kubeconfig
+*.kubeconfig
+
+# Ansible
+*.retry
+
+# OS / Editors
+.DS_Store
+.vscode/
+*.swp

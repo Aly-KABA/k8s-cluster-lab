@@ -1,0 +1,5 @@
+# Copie ce fichier en "terraform.tfvars" et remplis tes propres valeurs.
+# terraform.tfvars ne doit JAMAIS être commité (il est dans .gitignore).
+
+key_pair_name = "ma-cle-ec2"        # Nom de ta Key Pair créée dans la console AWS
+my_ip_cidr    = "1.2.3.4/32"        # Ton IP publique - trouve-la sur https://whatismyip.com puis ajoute /32

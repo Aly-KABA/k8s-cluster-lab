@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-config
+data:
+  LATENCY_THRESHOLD_MS: "50"        # au-delà de 50ms, la mesure est considérée en alerte
+  LOSS_THRESHOLD_PERCENT: "1"       # au-delà de 1% de perte, la mesure est considérée en alerte

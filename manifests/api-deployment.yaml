@@ -1,0 +1,66 @@
+# ⚠️ Remplace "TON-PSEUDO-DOCKERHUB" par ton propre pseudo Docker Hub
+# une fois que tu as construit et poussé ton image (voir docs/03-deploy-app.md)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kpi-api-deployment
+  labels:
+    app: kpi-api
+spec:
+  replicas: 2   # 2 instances de l'API, pour illustrer la répartition de charge Kubernetes
+  selector:
+    matchLabels:
+      app: kpi-api
+  template:
+    metadata:
+      labels:
+        app: kpi-api
+    spec:
+      containers:
+        - name: kpi-api
+          image: TON-PSEUDO-DOCKERHUB/kpi-api:v1
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: DB_HOST
+            - name: DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: DB_NAME
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: DB_PASSWORD
+            - name: LATENCY_THRESHOLD_MS
+              valueFrom:
+                configMapKeyRef:
+                  name: api-config
+                  key: LATENCY_THRESHOLD_MS
+            - name: LOSS_THRESHOLD_PERCENT
+              valueFrom:
+                configMapKeyRef:
+                  name: api-config
+                  key: LOSS_THRESHOLD_PERCENT
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 15
