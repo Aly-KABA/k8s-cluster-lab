@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: kpi-api
-          image: TON-PSEUDO-DOCKERHUB/kpi-api:v1
+          image: alykaba/kpi-api:v1
           ports:
             - containerPort: 8000
           env:
