@@ -15,8 +15,12 @@ Je documente ici précisément ce qui fonctionne réellement, testé, versus ce 
 - Capture d'écran de preuve : `screenshots/`
 
 ###  Écrit, pas encore déployé/testé
-- Application "API Supervision KPIs Réseau" (FastAPI + PostgreSQL) : code et Dockerfile prêts (`app/`)
-- Manifests Kubernetes (Deployments, Services, ConfigMaps, Secrets) rédigés (`manifests/`), pas encore appliqués sur le cluster
+### Fonctionnel et testé
+- Infrastructure AWS provisionnée avec Terraform (VPC, subnet, security group, 3 EC2)
+- Cluster Kubernetes opérationnel : 1 control-plane + 2 workers, initialisé avec `kubeadm`
+- CNI Calico installé, les 3 nœuds sont `Ready`
+- Capture d'écran de preuve : `screenshots/`
+- Application "API Supervision KPIs Réseau" déployée et testée : PostgreSQL + 2 réplicas FastAPI, endpoints /health, /kpi, /kpi/alerts fonctionnels via NodePort
 
 ###  Pas commencé
 - Playbooks Ansible pour la préparation des nœuds
