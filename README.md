@@ -14,12 +14,6 @@ Je documente ici précisément ce qui fonctionne réellement, testé, versus ce 
 - CNI Calico installé, les 3 nœuds sont `Ready`
 - Capture d'écran de preuve : `screenshots/`
 
-###  Écrit, pas encore déployé/testé
-### Fonctionnel et testé
-- Infrastructure AWS provisionnée avec Terraform (VPC, subnet, security group, 3 EC2)
-- Cluster Kubernetes opérationnel : 1 control-plane + 2 workers, initialisé avec `kubeadm`
-- CNI Calico installé, les 3 nœuds sont `Ready`
-- Capture d'écran de preuve : `screenshots/`
 - Application "API Supervision KPIs Réseau" déployée et testée : PostgreSQL + 2 réplicas FastAPI, endpoints /health, /kpi, /kpi/alerts fonctionnels via NodePort
 
 ###  Pas commencé
