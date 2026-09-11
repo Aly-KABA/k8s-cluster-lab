@@ -13,12 +13,11 @@ Je documente ici précisément ce qui fonctionne réellement, testé, versus ce 
 - Cluster Kubernetes opérationnel : 1 control-plane + 2 workers, initialisé avec `kubeadm`
 - CNI Calico installé, les 3 nœuds sont `Ready`
 - Capture d'écran de preuve : `screenshots/`
-
 - Application "API Supervision KPIs Réseau" déployée et testée : PostgreSQL + 2 réplicas FastAPI, endpoints /health, /kpi, /kpi/alerts fonctionnels via NodePort
+- Pipeline CI/CD (GitHub Actions) : validation automatique Terraform + manifests Kubernetes, build et push automatique de l'image Docker vers Docker Hub
 
 ###  Pas commencé
 - Playbooks Ansible pour la préparation des nœuds
-- Pipeline CI/CD (GitHub Actions)
 - Ingress + NetworkPolicy
 - RBAC et exemple de troubleshooting documenté
 - Monitoring Prometheus/Grafana via Helm
@@ -56,7 +55,7 @@ Je documente ici précisément ce qui fonctionne réellement, testé, versus ce 
 | Conteneurisation | Docker | 🔧 |
 | Base de données | PostgreSQL | 🔧 |
 | Configuration | Ansible | ⏳ |
-| CI/CD | GitHub Actions | ⏳ |
+| CI/CD | GitHub Actions | ✅ |
 | Ingress | NGINX Ingress Controller | ⏳ |
 | Monitoring | Prometheus + Grafana (Helm) | ⏳ |
 | Documentation | MkDocs + GitHub Pages | ⏳ |
