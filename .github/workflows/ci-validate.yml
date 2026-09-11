@@ -44,4 +44,4 @@ jobs:
         run: |
           docker run --rm -v "$PWD/manifests:/manifests" \
             ghcr.io/yannh/kubeconform:latest \
-            -summary -ignore-missing-schemas /manifests/*.yaml
+            -summary -ignore-missing-schemas /manifests
