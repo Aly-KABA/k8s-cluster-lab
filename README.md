@@ -15,12 +15,12 @@ Je documente ici précisément ce qui fonctionne réellement, testé, versus ce 
 - Capture d'écran de preuve : `screenshots/`
 - Application "API Supervision KPIs Réseau" déployée et testée : PostgreSQL + 2 réplicas FastAPI, endpoints /health, /kpi, /kpi/alerts fonctionnels via NodePort
 - Pipeline CI/CD (GitHub Actions) : validation automatique Terraform + manifests Kubernetes, build et push automatique de l'image Docker vers Docker Hub
+- Monitoring Prometheus/Grafana déployé via Helm (kube-prometheus-stack) : dashboards fonctionnels (ressources cluster, noeuds, pods), voir screenshots/grafana-dashboard.png
 
 ###  Pas commencé
 - Playbooks Ansible pour la préparation des nœuds
 - Ingress + NetworkPolicy
 - RBAC et exemple de troubleshooting documenté
-- Monitoring Prometheus/Grafana via Helm
 - Documentation MkDocs + GitHub Pages
 
 
@@ -57,7 +57,7 @@ Je documente ici précisément ce qui fonctionne réellement, testé, versus ce 
 | Configuration | Ansible | ⏳ |
 | CI/CD | GitHub Actions | ✅ |
 | Ingress | NGINX Ingress Controller | ⏳ |
-| Monitoring | Prometheus + Grafana (Helm) | ⏳ |
+| Monitoring | Prometheus + Grafana (Helm) | ✅  |
 | Documentation | MkDocs + GitHub Pages | ⏳ |
 
 ## Structure du repo
